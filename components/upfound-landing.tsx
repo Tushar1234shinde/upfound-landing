@@ -1,82 +1,66 @@
 'use client'
 
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
-import { ArrowUpRight, ChevronDown, Menu, Play, Sparkles } from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Globe2, Menu, Sparkles } from 'lucide-react'
 import { useRef, useState } from 'react'
 
-const navItems = ['About', 'Services', 'Pricing']
+const navItems = ['Home', 'About', 'Services', 'Pricing', 'Solution']
 
 export function UpFoundLanding() {
   const [menuOpen, setMenuOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-  const rotateX = useTransform(useSpring(y, { stiffness: 120, damping: 18 }), [-0.5, 0.5], [7, -7])
-  const rotateY = useTransform(useSpring(x, { stiffness: 120, damping: 18 }), [-0.5, 0.5], [-7, 7])
+  const pointerX = useMotionValue(0)
+  const pointerY = useMotionValue(0)
+  const rotateX = useTransform(useSpring(pointerY, { stiffness: 140, damping: 20 }), [-0.5, 0.5], [8, -8])
+  const rotateY = useTransform(useSpring(pointerX, { stiffness: 140, damping: 20 }), [-0.5, 0.5], [-8, 8])
 
-  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+  function handleMove(event: React.PointerEvent<HTMLDivElement>) {
     if (!ref.current) return
     const rect = ref.current.getBoundingClientRect()
-    x.set((event.clientX - rect.left) / rect.width - 0.5)
-    y.set((event.clientY - rect.top) / rect.height - 0.5)
-  }
-
-  function resetCard() {
-    x.set(0)
-    y.set(0)
+    pointerX.set((event.clientX - rect.left) / rect.width - 0.5)
+    pointerY.set((event.clientY - rect.top) / rect.height - 0.5)
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#061c19] text-[#f1f5e9] selection:bg-[#a7e65f] selection:text-[#06201c]">
-      <div className="upfound-grid pointer-events-none fixed inset-0 opacity-30" aria-hidden="true" />
-      <div className="pointer-events-none fixed left-[16%] top-[-18%] h-[34rem] w-[34rem] rounded-full bg-[#51d68a]/10 blur-[120px]" aria-hidden="true" />
-      <div className="pointer-events-none fixed bottom-[-20%] right-[-8%] h-[34rem] w-[34rem] rounded-full bg-[#05756c]/20 blur-[140px]" aria-hidden="true" />
-
-      <header className="relative z-20 px-5 pt-5 sm:px-8 lg:px-12">
-        <nav className="mx-auto flex max-w-[1400px] items-center justify-between rounded-full border border-white/10 bg-[#092824]/70 px-4 py-3.5 shadow-2xl shadow-black/10 backdrop-blur-xl sm:px-6" aria-label="Main navigation">
-          <a href="#home" className="flex items-center gap-2.5 text-sm font-semibold tracking-[-0.02em]" aria-label="UpFound home">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#a7e65f] text-[#08211d] shadow-[0_0_24px_rgba(167,230,95,0.2)]"><Sparkles size={14} strokeWidth={2.5} /></span>
-            <span>upfound<span className="text-[#a7e65f]">.</span></span>
-          </a>
-          <div className="hidden items-center gap-8 text-[13px] text-[#b4c8bd] md:flex">
-            {navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`} className="transition-colors hover:text-white">{item}</a>)}
+    <main className="min-h-screen overflow-hidden bg-[#031e1a] text-[#eaf5ec] selection:bg-[#5ef39a] selection:text-[#03231c]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(28,152,122,.28),transparent_30%),radial-gradient(circle_at_17%_70%,rgba(81,219,126,.18),transparent_20%),linear-gradient(110deg,#06251f,#07352f_48%,#06241f)]" aria-hidden="true" />
+      <div className="upfound-grid pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
+      <header className="relative z-30 px-8 pt-7 lg:px-16">
+        <nav className="mx-auto flex max-w-[1240px] items-center justify-between" aria-label="Main navigation">
+          <a href="#home" className="flex items-center gap-2 text-[13px] font-medium tracking-tight"><span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#62ec9b] text-[#05251d]"><Sparkles size={14} fill="currentColor" /></span>UpFound</a>
+          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[.09] p-1.5 text-[11px] text-[#aac8bb] shadow-lg backdrop-blur-xl md:flex">
+            {navItems.map((item, index) => <a key={item} href={index === 0 ? '#home' : `#${item.toLowerCase()}`} className={`rounded-full px-4 py-2 transition ${index === 0 ? 'bg-white/15 text-white' : 'hover:bg-white/10 hover:text-white'}`}>{item}{item === 'Services' && <ChevronDown className="ml-1 inline" size={11} />}</a>)}
+            <span className="mx-1 h-4 w-px bg-white/10" /><button className="rounded-full px-3 py-2 hover:bg-white/10" aria-label="Select language"><Globe2 className="mr-1 inline" size={12} />English <ChevronDown className="ml-1 inline" size={11} /></button>
           </div>
-          <div className="hidden items-center gap-5 text-[13px] md:flex">
-            <a href="#login" className="text-[#b4c8bd] transition-colors hover:text-white">Log in</a>
-            <a href="#signup" className="rounded-full bg-[#e9f4df] px-4 py-2 font-medium text-[#0a2821] transition-transform hover:scale-[1.03]">Sign up <ArrowUpRight className="ml-1 inline" size={13} /></a>
-          </div>
-          <button className="rounded-full p-2 text-[#c5d5cb] md:hidden" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><Menu size={20} /></button>
+          <a href="#signup" className="hidden rounded-full bg-[#46dc87] px-5 py-2.5 text-[11px] font-semibold text-[#05261d] shadow-[0_0_30px_rgba(70,220,135,.22)] transition hover:bg-[#72f5a8] md:block">Login / Register</a>
+          <button className="rounded-full border border-white/10 p-2 md:hidden" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><Menu size={18} /></button>
         </nav>
-        {menuOpen && <div className="mx-2 mt-2 grid gap-1 rounded-3xl border border-white/10 bg-[#0b302a]/95 p-3 text-center text-sm backdrop-blur-xl md:hidden">{navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-2xl py-3 text-[#b4c8bd] hover:bg-white/5 hover:text-white">{item}</a>)}<a href="#signup" className="rounded-2xl bg-[#a7e65f] py-3 font-semibold text-[#08211d]">Sign up</a></div>}
+        {menuOpen && <div className="mx-auto mt-3 grid max-w-sm gap-1 rounded-2xl border border-white/10 bg-[#092d27]/95 p-3 text-center text-sm backdrop-blur-xl md:hidden">{navItems.map(item => <a key={item} href={item === 'Home' ? '#home' : `#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-xl py-3 text-[#c1d5cb] hover:bg-white/10">{item}</a>)}<a href="#signup" className="rounded-xl bg-[#46dc87] py-3 font-semibold text-[#05261d]">Login / Register</a></div>}
       </header>
 
-      <section id="home" className="relative mx-auto flex min-h-[calc(100vh-6.5rem)] max-w-[1400px] flex-col px-5 pb-14 pt-20 sm:px-8 sm:pt-28 lg:px-12 lg:pt-24">
-        <div className="pointer-events-none absolute inset-x-0 top-[13%] z-0 select-none overflow-hidden text-center text-[clamp(5.5rem,17vw,15rem)] font-light leading-none tracking-[-0.1em] text-[#bde7d4]/[.08]" aria-hidden="true">UPFOUND</div>
-        <div className="relative z-10 max-w-3xl lg:pt-16">
-          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }} className="mb-7 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-[#a7e65f]"><span className="h-1.5 w-1.5 rounded-full bg-[#a7e65f] shadow-[0_0_10px_#a7e65f]" /> The future is funded differently</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .12, duration: .8 }} className="max-w-4xl text-[clamp(4rem,10.5vw,9.5rem)] font-medium leading-[.86] tracking-[-0.085em] text-[#edf4e9]">Capital for <span className="font-serif italic text-[#a7e65f]">what&apos;s</span> next.</motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .35, duration: .7 }} className="mt-9 max-w-sm text-[15px] leading-7 text-[#a9beb3] sm:ml-[18%]">UpFound connects ambitious founders with the conviction, capital, and community to turn category-defining ideas into enduring companies.</motion.p>
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .5 }} className="mt-8 flex flex-wrap items-center gap-4 sm:ml-[18%]"><a href="#signup" className="rounded-full bg-[#a7e65f] px-6 py-3.5 text-sm font-semibold text-[#08211d] transition-all hover:bg-[#c0f17a] hover:shadow-[0_0_32px_rgba(167,230,95,.18)]">Start a conversation <ArrowUpRight className="ml-2 inline" size={15} /></a><a href="#about" className="group flex items-center gap-2 text-sm text-[#c4d3c9]"><span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors group-hover:border-[#a7e65f]/60"><Play size={12} fill="currentColor" /></span> See how we think</a></motion.div>
+      <section id="home" className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1240px] flex-col px-8 pb-8 pt-12 lg:px-16 lg:pt-14">
+        <h1 className="pointer-events-none absolute left-1/2 top-[10%] z-0 -translate-x-1/2 whitespace-nowrap text-[clamp(5rem,14vw,12rem)] font-light leading-none tracking-[-.1em] text-[#c9eee2]/[.27]">Legacy Bank</h1>
+        <div className="relative z-10 mt-[42vh] max-w-[280px] lg:mt-[35vh]">
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-[31px] font-medium uppercase leading-[1.05] tracking-[-.06em] text-white">Fuel for<br />startups</motion.p>
+          <p className="mt-3 max-w-[220px] text-[10px] leading-[1.45] text-[#a8c8bb]">Strategic guidance, funding support, and growth acceleration for early-stage ventures.</p>
+          <div className="mt-5 flex gap-3"><a href="#signup" className="rounded-full bg-[#46dc87] px-5 py-3 text-[10px] font-semibold text-[#04281e] transition hover:bg-[#78f4aa]">Get Started</a><a href="#about" className="rounded-full border border-white/10 bg-white/10 px-5 py-3 text-[10px] text-white transition hover:bg-white/20">Contact Us</a></div>
         </div>
 
-        <div className="pointer-events-none absolute bottom-[8%] right-[4%] hidden w-[42%] max-w-[550px] lg:block" ref={ref} onPointerMove={handlePointerMove} onPointerLeave={resetCard}>
-          <motion.div style={{ rotateX, rotateY }} className="relative aspect-[.8] w-full [transform-style:preserve-3d]" initial={{ opacity: 0, scale: .9, rotate: -5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .25, duration: 1.2, ease: 'easeOut' }}>
-            <div className="absolute inset-[9%] rounded-[40%_48%_32%_44%] border border-[#b7ffa9]/30 bg-gradient-to-br from-[#a7e65f]/45 via-[#28a978]/25 to-[#064b42]/25 shadow-[inset_-18px_-28px_54px_rgba(0,22,18,.4),0_0_100px_rgba(65,209,133,.2)] backdrop-blur-sm" />
-            <div className="absolute left-[20%] top-[18%] h-[54%] w-[45%] rotate-[24deg] border border-white/25 bg-gradient-to-br from-white/40 via-[#8dffbc]/10 to-transparent shadow-[20px_30px_80px_rgba(108,255,171,.18)] [clip-path:polygon(50%_0,100%_21%,87%_82%,50%_100%,8%_82%,0_21%)]" />
-            <div className="absolute bottom-[17%] left-[17%] h-16 w-16 rounded-full bg-[#d2ff7b]/50 blur-2xl" />
-            <div className="absolute right-[11%] top-[29%] h-28 w-28 rounded-full bg-[#57ffe3]/20 blur-3xl" />
-            <div className="absolute left-[6%] top-[33%] h-10 w-10 rounded-full border border-[#a7e65f]/30 bg-[#a7e65f]/10 backdrop-blur-md" />
+        <div ref={ref} onPointerMove={handleMove} onPointerLeave={() => { pointerX.set(0); pointerY.set(0) }} className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
+          <motion.div style={{ rotateX, rotateY }} className="relative h-full w-full [transform-style:preserve-3d]" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
+            <div className="absolute bottom-[2%] left-[18%] h-[48%] w-[65%] skew-y-[-8deg] border border-[#86ffd1]/50 bg-gradient-to-br from-[#57eab1]/65 via-[#087b6d]/70 to-[#032f37]/90 shadow-[0_0_50px_rgba(47,247,183,.3),inset_18px_18px_35px_rgba(196,255,232,.35)] [clip-path:polygon(12%_0,88%_11%,100%_84%,50%_100%,0_82%)]" />
+            <div className="absolute bottom-[26%] left-[24%] h-[24%] w-[52%] rotate-[-2deg] border border-[#abffe1]/60 bg-gradient-to-br from-[#62f1b4]/70 to-[#07514d]/85 shadow-[0_0_35px_rgba(65,255,183,.4)] [clip-path:polygon(12%_0,88%_0,100%_75%,50%_100%,0_75%)]" />
+            <div className="absolute left-[31%] top-[5%] h-[55%] w-[38%] rotate-[34deg] border border-[#afffe4]/70 bg-gradient-to-br from-[#51edb0]/70 via-[#08665b]/65 to-[#021b2a]/90 shadow-[15px_20px_45px_rgba(45,255,185,.35),inset_10px_8px_22px_rgba(210,255,230,.28)] [clip-path:polygon(50%_0,100%_20%,86%_82%,50%_100%,14%_82%,0_20%)]"><span className="absolute left-[18%] top-[48%] h-9 w-5 rotate-[-7deg] rounded bg-[#d7e6ba]/80 shadow-[0_0_10px_white]" /></div>
+            <div className="absolute left-[7%] top-[35%] h-12 w-12 rounded-full border border-[#9affce]/70 bg-[#2fcf9b]/35 shadow-[0_0_25px_#56f5b2]" /><div className="absolute right-[4%] top-[33%] h-10 w-10 rounded-full border border-[#9affce]/70 bg-[#2fcf9b]/35 shadow-[0_0_20px_#56f5b2]" />
+            <div className="absolute bottom-[8%] left-1/2 h-16 w-48 -translate-x-1/2 rounded-full bg-[#65f4a3]/40 blur-3xl" />
           </motion.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .7 }} className="relative z-10 mt-16 w-fit self-end rounded-2xl border border-white/15 bg-white/[.07] p-4 shadow-2xl backdrop-blur-xl sm:mr-[8%] lg:absolute lg:bottom-[11%] lg:right-[4%] lg:mr-0" aria-label="UpFound portfolio metrics">
-          <div className="mb-3 flex items-center justify-between gap-12 text-[10px] uppercase tracking-[.18em] text-[#8da99b]"><span>Portfolio pulse</span><span className="h-1.5 w-1.5 rounded-full bg-[#a7e65f] shadow-[0_0_8px_#a7e65f]" /></div><div className="flex items-end gap-7"><div><p className="text-2xl font-medium tracking-tight text-[#e8f3e6]">$2.4B</p><p className="mt-1 text-[10px] text-[#91aa9f]">capital deployed</p></div><div><p className="text-2xl font-medium tracking-tight text-[#a7e65f]">41%</p><p className="mt-1 text-[10px] text-[#91aa9f]">avg. YoY growth</p></div></div>
-        </motion.div>
-        <div className="mt-auto hidden items-center justify-between border-t border-white/10 pt-6 text-[11px] uppercase tracking-[.16em] text-[#6f8a7e] sm:flex"><span>Independent venture partners</span><span className="flex items-center gap-2">Scroll to explore <ChevronDown size={13} /></span><span>NY · SF · Everywhere</span></div>
-      </section>
+        <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .6 }} className="absolute bottom-[14%] right-8 z-20 w-[205px] rounded-2xl border border-white/10 bg-[#28594e]/70 p-4 shadow-2xl backdrop-blur-xl lg:right-16" aria-label="Launching startups metrics"><div className="flex items-center justify-between text-[10px] text-white"><span>Launching Startups</span><ArrowUpRight size={14} /></div><div className="mt-5 flex items-end justify-between"><div className="space-y-3 text-[9px] text-[#b5d0c3]"><p><strong className="text-white">83%</strong> Success Rate</p><p><strong className="text-white">17%</strong> Failure Rate</p></div><div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#8cf06c] border-l-transparent text-lg font-medium shadow-[0_0_18px_rgba(140,240,108,.3)]">86<span className="text-[9px]">%</span></div></div><p className="mt-3 text-right text-[9px] text-[#69ef91]">↑ 4.52%</p></motion.aside>
 
-      <section id="about" className="mx-auto max-w-[1400px] scroll-mt-8 border-t border-white/10 px-5 py-28 sm:px-8 lg:px-12"><p className="text-xs uppercase tracking-[.2em] text-[#a7e65f]">01 — Our point of view</p><h2 className="mt-7 max-w-4xl text-4xl leading-tight tracking-[-.05em] text-[#eaf3e6] sm:text-6xl">The best companies aren&apos;t found. <span className="text-[#7b988a]">They&apos;re backed early.</span></h2></section>
-      <section id="services" className="sr-only" aria-label="Services"><h2>Services</h2></section><section id="pricing" className="sr-only" aria-label="Pricing"><h2>Pricing</h2></section><section id="login" className="sr-only" aria-label="Log in"><h2>Log in</h2></section><section id="signup" className="sr-only" aria-label="Sign up"><h2>Sign up</h2></section>
+        <div className="relative z-20 mt-auto flex items-center justify-center text-[9px] uppercase tracking-[.18em] text-[#779b8d]"><span className="mr-2">◦</span>Scroll to<br />explore more</div>
+      </section>
+      <section id="about" className="sr-only" aria-label="About"><h2>About UpFound</h2></section><section id="services" className="sr-only" aria-label="Services"><h2>Services</h2></section><section id="pricing" className="sr-only" aria-label="Pricing"><h2>Pricing</h2></section><section id="solution" className="sr-only" aria-label="Solution"><h2>Solution</h2></section><section id="signup" className="sr-only" aria-label="Login and registration"><h2>Login / Register</h2></section>
     </main>
   )
 }
