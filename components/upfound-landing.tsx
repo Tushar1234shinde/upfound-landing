@@ -50,8 +50,9 @@ export function UpFoundLanding() {
         {menuOpen && <div className="mx-2 mt-2 grid gap-1 rounded-3xl border border-white/10 bg-[#0b302a]/95 p-3 text-center text-sm backdrop-blur-xl md:hidden">{navItems.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-2xl py-3 text-[#b4c8bd] hover:bg-white/5 hover:text-white">{item}</a>)}<a href="#signup" className="rounded-2xl bg-[#a7e65f] py-3 font-semibold text-[#08211d]">Sign up</a></div>}
       </header>
 
-      <section id="home" className="relative mx-auto flex min-h-[calc(100vh-6.5rem)] max-w-[1400px] flex-col px-5 pb-14 pt-20 sm:px-8 sm:pt-28 lg:px-12 lg:pt-32">
-        <div className="relative z-10 max-w-3xl">
+      <section id="home" className="relative mx-auto flex min-h-[calc(100vh-6.5rem)] max-w-[1400px] flex-col px-5 pb-14 pt-20 sm:px-8 sm:pt-28 lg:px-12 lg:pt-24">
+        <div className="pointer-events-none absolute inset-x-0 top-[13%] z-0 select-none overflow-hidden text-center text-[clamp(5.5rem,17vw,15rem)] font-light leading-none tracking-[-0.1em] text-[#bde7d4]/[.08]" aria-hidden="true">UPFOUND</div>
+        <div className="relative z-10 max-w-3xl lg:pt-16">
           <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }} className="mb-7 flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-[#a7e65f]"><span className="h-1.5 w-1.5 rounded-full bg-[#a7e65f] shadow-[0_0_10px_#a7e65f]" /> The future is funded differently</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .12, duration: .8 }} className="max-w-4xl text-[clamp(4rem,10.5vw,9.5rem)] font-medium leading-[.86] tracking-[-0.085em] text-[#edf4e9]">Capital for <span className="font-serif italic text-[#a7e65f]">what&apos;s</span> next.</motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .35, duration: .7 }} className="mt-9 max-w-sm text-[15px] leading-7 text-[#a9beb3] sm:ml-[18%]">UpFound connects ambitious founders with the conviction, capital, and community to turn category-defining ideas into enduring companies.</motion.p>
