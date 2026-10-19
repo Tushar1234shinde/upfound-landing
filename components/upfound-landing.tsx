@@ -49,14 +49,10 @@ export function UpFoundLanding() {
 
         <div ref={ref} onPointerMove={handleMove} onPointerLeave={() => { pointerX.set(0); pointerY.set(0) }} className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
           <motion.div style={{ rotateX, rotateY }} className="relative h-full w-full [transform-style:preserve-3d]" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-            <div className="absolute inset-[3%] overflow-hidden rounded-[28px] border border-[#9bffe0]/35 bg-[radial-gradient(circle_at_50%_42%,rgba(91,255,190,.2),transparent_38%),linear-gradient(145deg,rgba(8,91,75,.55),rgba(1,29,26,.55))] shadow-[0_0_70px_rgba(47,247,183,.28)]">
-              <div className="absolute left-1/2 top-[14%] h-[44%] w-[42%] -translate-x-1/2 rotate-[34deg] rounded-[18%] border border-[#a4ffe3]/70 bg-[linear-gradient(135deg,rgba(121,255,211,.65),rgba(4,65,58,.82)_38%,rgba(1,22,24,.96)_76%)] shadow-[inset_-14px_-18px_24px_rgba(0,0,0,.42),inset_12px_10px_20px_rgba(169,255,226,.28),0_0_28px_rgba(79,255,190,.55)] before:absolute before:inset-[10%] before:rounded-[12%] before:border before:border-white/25 before:bg-[linear-gradient(125deg,transparent_20%,rgba(172,255,231,.52)_45%,transparent_54%)]" aria-hidden="true" />
-              <div className="absolute bottom-[17%] left-1/2 h-[21%] w-[38%] -translate-x-1/2 [clip-path:polygon(50%_0,100%_27%,88%_100%,12%_100%,0_27%)] border border-[#a4ffe3]/70 bg-[linear-gradient(135deg,#39f4ba,#075c53_52%,#062b35)] shadow-[0_0_30px_rgba(73,255,199,.45)]" aria-hidden="true" />
-              <div className="absolute bottom-[5%] left-1/2 h-[17%] w-[61%] -translate-x-1/2 [clip-path:polygon(12%_0,88%_0,100%_24%,86%_100%,14%_100%,0_24%)] border border-[#8effd2]/50 bg-[linear-gradient(110deg,rgba(51,239,183,.8),rgba(4,70,66,.9)_48%,rgba(13,153,128,.7))] shadow-[0_12px_28px_rgba(0,0,0,.45),0_0_34px_rgba(55,255,194,.48)]" aria-hidden="true" />
-              <div className="absolute left-[19%] top-[39%] h-4 w-9 rotate-[-28deg] rounded-full border border-[#9fffe0]/80 bg-[#47e9b5]/60 blur-[1px]" aria-hidden="true" />
-              <div className="absolute right-[16%] top-[47%] h-5 w-8 rotate-[25deg] rounded-full border border-[#9fffe0]/80 bg-[#47e9b5]/60 blur-[1px]" aria-hidden="true" />
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(91,255,190,.18),transparent_42%),linear-gradient(180deg,rgba(2,28,24,.04),rgba(2,25,21,.5))]" aria-hidden="true" />
-            </div>
+<motion.div animate={{ rotate: [0, 2.5, 0, -2.5, 0], y: [0, -5, 0, -3, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-[3%] overflow-hidden rounded-[28px] border border-[#9bffe0]/35 bg-[#063a32]/30 shadow-[0_0_70px_rgba(47,247,183,.28)]">
+  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="h-full w-full object-cover object-center" />
+  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(91,255,190,.12),transparent_42%),linear-gradient(180deg,rgba(2,28,24,.04),rgba(2,25,21,.22))]" aria-hidden="true" />
+</motion.div>
           </motion.div>
         </div>
 
