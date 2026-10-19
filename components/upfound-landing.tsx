@@ -1,26 +1,13 @@
 'use client'
 
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
+import { motion } from 'motion/react'
 import { ArrowUpRight, ChevronDown, Globe2, Menu, Sparkles } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 const navItems = ['Home', 'About', 'Services', 'Pricing', 'Solution']
 
 export function UpFoundLanding() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  const pointerX = useMotionValue(0)
-  const pointerY = useMotionValue(0)
-  const rotateX = useTransform(useSpring(pointerY, { stiffness: 140, damping: 20 }), [-0.5, 0.5], [8, -8])
-  const rotateY = useTransform(useSpring(pointerX, { stiffness: 140, damping: 20 }), [-0.5, 0.5], [-8, 8])
-
-  function handleMove(event: React.PointerEvent<HTMLDivElement>) {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    pointerX.set((event.clientX - rect.left) / rect.width - 0.5)
-    pointerY.set((event.clientY - rect.top) / rect.height - 0.5)
-  }
-
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#031e1a] text-[#eaf5ec] selection:bg-[#5ef39a] selection:text-[#03231c]">
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_44%,rgba(39,155,125,.34),transparent_30%),radial-gradient(circle_at_50%_95%,rgba(37,212,139,.18),transparent_28%),linear-gradient(135deg,#062821_0%,#073c35_48%,#021b1a_100%)]" aria-hidden="true" />
@@ -47,11 +34,11 @@ export function UpFoundLanding() {
           <div className="mt-5 flex gap-3"><a href="#signup" className="rounded-full bg-[#46dc87] px-5 py-3 text-[10px] font-semibold text-[#04281e] transition hover:bg-[#78f4aa]">Get Started</a><a href="#about" className="rounded-full border border-white/10 bg-white/10 px-5 py-3 text-[10px] text-white transition hover:bg-white/20">Contact Us</a></div>
         </div>
 
-        <div ref={ref} onPointerMove={handleMove} onPointerLeave={() => { pointerX.set(0); pointerY.set(0) }} className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
-          <motion.div style={{ rotateX, rotateY }} className="relative h-full w-full [transform-style:preserve-3d]" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-<motion.div animate={{ rotate: [0, 2.2, 0, -2.2, 0], y: [0, -5, 0, -3, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="group absolute inset-[-9%] flex items-center justify-center">
+        <div className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
+          <motion.div className="relative h-full w-full" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: "easeOut" }}>
+<motion.div whileHover={{ scale: 1.045 }} transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.7 }} className="group absolute inset-[-9%] flex items-center justify-center">
   <div className="absolute inset-[18%] rounded-full bg-[#39e6a0]/25 blur-[70px]" aria-hidden="true" />
-  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain mix-blend-screen opacity-[.94] transition-transform duration-700 ease-out group-hover:scale-[1.045] [mask-image:radial-gradient(ellipse_64%_68%_at_50%_47%,black_44%,rgba(0,0,0,.72)_62%,transparent_92%)]" />
+  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain mix-blend-screen opacity-[.94] transition-none [mask-image:radial-gradient(ellipse_64%_68%_at_50%_47%,black_44%,rgba(0,0,0,.72)_62%,transparent_92%)]" />
   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(3,30,26,.25)_78%,transparent_100%)]" aria-hidden="true" />
 </motion.div>
           </motion.div>
