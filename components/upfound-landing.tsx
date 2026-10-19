@@ -38,8 +38,7 @@ export function UpFoundLanding() {
           <motion.div className="relative h-full w-full" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: "easeOut" }}>
 <motion.div whileHover={{ scale: 1.045 }} transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.7 }} className="group absolute inset-[-9%] flex items-center justify-center">
   <div className="absolute inset-[18%] rounded-full bg-[#39e6a0]/25 blur-[70px]" aria-hidden="true" />
-  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain mix-blend-screen opacity-[.94] transition-none [mask-image:radial-gradient(ellipse_64%_68%_at_50%_47%,black_44%,rgba(0,0,0,.72)_62%,transparent_92%)]" />
-  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(3,30,26,.25)_78%,transparent_100%)]" aria-hidden="true" />
+  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain opacity-[.98] transition-none" />
 </motion.div>
           </motion.div>
         </div>
