@@ -49,9 +49,9 @@ export function UpFoundLanding() {
 
         <div ref={ref} onPointerMove={handleMove} onPointerLeave={() => { pointerX.set(0); pointerY.set(0) }} className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
           <motion.div style={{ rotateX, rotateY }} className="relative h-full w-full [transform-style:preserve-3d]" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-<motion.div animate={{ rotate: [0, 2.2, 0, -2.2, 0], y: [0, -5, 0, -3, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-[-9%] flex items-center justify-center">
+<motion.div animate={{ rotate: [0, 2.2, 0, -2.2, 0], y: [0, -5, 0, -3, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="group absolute inset-[-9%] flex items-center justify-center">
   <div className="absolute inset-[18%] rounded-full bg-[#39e6a0]/25 blur-[70px]" aria-hidden="true" />
-  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain mix-blend-screen opacity-[.94] [mask-image:radial-gradient(ellipse_64%_68%_at_50%_47%,black_44%,rgba(0,0,0,.72)_62%,transparent_92%)]" />
+  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain mix-blend-screen opacity-[.94] transition-transform duration-700 ease-out group-hover:scale-[1.045] [mask-image:radial-gradient(ellipse_64%_68%_at_50%_47%,black_44%,rgba(0,0,0,.72)_62%,transparent_92%)]" />
   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(3,30,26,.25)_78%,transparent_100%)]" aria-hidden="true" />
 </motion.div>
           </motion.div>
