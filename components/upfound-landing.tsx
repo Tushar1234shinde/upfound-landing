@@ -49,11 +49,10 @@ export function UpFoundLanding() {
 
         <div ref={ref} onPointerMove={handleMove} onPointerLeave={() => { pointerX.set(0); pointerY.set(0) }} className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
           <motion.div style={{ rotateX, rotateY }} className="relative h-full w-full [transform-style:preserve-3d]" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
-            <div className="absolute bottom-[2%] left-[18%] h-[48%] w-[65%] skew-y-[-8deg] border border-[#86ffd1]/50 bg-gradient-to-br from-[#57eab1]/65 via-[#087b6d]/70 to-[#032f37]/90 shadow-[0_0_50px_rgba(47,247,183,.3),inset_18px_18px_35px_rgba(196,255,232,.35)] [clip-path:polygon(12%_0,88%_11%,100%_84%,50%_100%,0_82%)]" />
-            <div className="absolute bottom-[26%] left-[24%] h-[24%] w-[52%] rotate-[-2deg] border border-[#abffe1]/60 bg-gradient-to-br from-[#62f1b4]/70 to-[#07514d]/85 shadow-[0_0_35px_rgba(65,255,183,.4)] [clip-path:polygon(12%_0,88%_0,100%_75%,50%_100%,0_75%)]" />
-            <div className="absolute left-[31%] top-[5%] h-[55%] w-[38%] rotate-[34deg] border border-[#afffe4]/70 bg-gradient-to-br from-[#51edb0]/70 via-[#08665b]/65 to-[#021b2a]/90 shadow-[15px_20px_45px_rgba(45,255,185,.35),inset_10px_8px_22px_rgba(210,255,230,.28)] [clip-path:polygon(50%_0,100%_20%,86%_82%,50%_100%,14%_82%,0_20%)]"><span className="absolute left-[18%] top-[48%] h-9 w-5 rotate-[-7deg] rounded bg-[#d7e6ba]/80 shadow-[0_0_10px_white]" /></div>
-            <div className="absolute left-[7%] top-[35%] h-12 w-12 rounded-full border border-[#9affce]/70 bg-[#2fcf9b]/35 shadow-[0_0_25px_#56f5b2]" /><div className="absolute right-[4%] top-[33%] h-10 w-10 rounded-full border border-[#9affce]/70 bg-[#2fcf9b]/35 shadow-[0_0_20px_#56f5b2]" />
-            <div className="absolute bottom-[8%] left-1/2 h-16 w-48 -translate-x-1/2 rounded-full bg-[#65f4a3]/40 blur-3xl" />
+            <div className="absolute inset-[3%] overflow-hidden rounded-[28px] border border-[#9bffe0]/35 bg-[#063a32]/40 shadow-[0_0_70px_rgba(47,247,183,.28)]">
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-10-17%20at%205.35.19%20PM-YW5L5IbIFR6ggjasLe04liV7f6mTCr.jpeg" alt="Emerald crystal card sculpture from the UpFound reference artwork" className="h-full w-full object-cover object-center opacity-95 mix-blend-screen" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(91,255,190,.18),transparent_42%),linear-gradient(180deg,rgba(2,28,24,.08),rgba(2,25,21,.5))]" aria-hidden="true" />
+            </div>
           </motion.div>
         </div>
 
