@@ -23,10 +23,10 @@ export function UpFoundLanding() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#031e1a] text-[#eaf5ec] selection:bg-[#5ef39a] selection:text-[#03231c]">
-      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-10-17%20at%205.35.19%20PM-YW5L5IbIFR6ggjasLe04liV7f6mTCr.jpeg" alt="UpFound startup funding hero" className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-center opacity-[.98]" />
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[#031e1a]/[.05]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_44%,rgba(39,155,125,.34),transparent_30%),radial-gradient(circle_at_50%_95%,rgba(37,212,139,.18),transparent_28%),linear-gradient(135deg,#062821_0%,#073c35_48%,#021b1a_100%)]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_18%,rgba(1,17,16,.42)_78%)]" aria-hidden="true" />
       <div className="upfound-grid pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
-      <header className="pointer-events-auto relative z-30 px-8 pt-7 opacity-0 lg:px-16">
+      <header className="pointer-events-auto relative z-30 px-8 pt-7 lg:px-16">
         <nav className="mx-auto flex max-w-[1240px] items-center justify-between" aria-label="Main navigation">
           <a href="#home" className="flex items-center gap-2 text-[13px] font-medium tracking-tight"><span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#62ec9b] text-[#05251d]"><Sparkles size={14} fill="currentColor" /></span>UpFound</a>
           <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[.09] p-1.5 text-[11px] text-[#aac8bb] shadow-lg backdrop-blur-xl md:flex">
@@ -39,7 +39,7 @@ export function UpFoundLanding() {
         {menuOpen && <div className="mx-auto mt-3 grid max-w-sm gap-1 rounded-2xl border border-white/10 bg-[#092d27]/95 p-3 text-center text-sm backdrop-blur-xl md:hidden">{navItems.map(item => <a key={item} href={item === 'Home' ? '#home' : `#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-xl py-3 text-[#c1d5cb] hover:bg-white/10">{item}</a>)}<a href="#signup" className="rounded-xl bg-[#46dc87] py-3 font-semibold text-[#05261d]">Login / Register</a></div>}
       </header>
 
-      <section id="home" className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1240px] flex-col px-8 pb-8 pt-12 opacity-0 lg:px-16 lg:pt-14">
+      <section id="home" className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1240px] flex-col px-8 pb-8 pt-12 lg:px-16 lg:pt-14">
         <h1 className="pointer-events-none absolute left-1/2 top-[10%] z-0 -translate-x-1/2 whitespace-nowrap text-[clamp(5rem,14vw,12rem)] font-light leading-none tracking-[-.1em] text-[#c9eee2]/[.27]">Legacy Bank</h1>
         <div className="relative z-10 mt-[42vh] max-w-[280px] lg:mt-[35vh]">
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-[31px] font-medium uppercase leading-[1.05] tracking-[-.06em] text-white">Fuel for<br />startups</motion.p>
