@@ -35,7 +35,7 @@ export function UpFoundLanding() {
           <div className="mt-5 flex gap-3"><a href="#signup" className="rounded-full bg-[#46dc87] px-5 py-3 text-[10px] font-semibold text-[#04281e] transition hover:bg-[#78f4aa]">Get Started</a><a href="#about" className="rounded-full border border-white/10 bg-white/10 px-5 py-3 text-[10px] text-white transition hover:bg-white/20">Contact Us</a></div>
         </div>
 
-        <div className="pointer-events-auto absolute left-1/2 top-[24%] z-10 h-[220px] w-[190px] -translate-x-1/2 sm:top-[14%] sm:h-[315px] sm:w-[264px] lg:top-[12%] lg:h-[330px] lg:w-[277px]">
+        <div className="pointer-events-auto absolute left-1/2 top-[27%] z-10 h-[220px] w-[190px] -translate-x-1/2 sm:top-[16%] sm:h-[315px] sm:w-[264px] lg:top-[14%] lg:h-[330px] lg:w-[277px]">
           <motion.div className="relative h-full w-full" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: "easeOut" }}>
 <motion.div whileHover={{ scale: 1.045 }} transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.7 }} className="group absolute inset-[-4%] flex items-center justify-center">
   <div className="absolute inset-[18%] rounded-full bg-[#39e6a0]/25 blur-[70px]" aria-hidden="true" />
