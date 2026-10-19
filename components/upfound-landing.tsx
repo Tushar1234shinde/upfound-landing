@@ -26,24 +26,24 @@ export function UpFoundLanding() {
         {menuOpen && <div className="mx-auto mt-3 grid max-w-sm gap-1 rounded-2xl border border-white/10 bg-[#092d27]/95 p-3 text-center text-sm backdrop-blur-xl md:hidden">{navItems.map(item => <a key={item} href={item === 'Home' ? '#home' : `#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-xl py-3 text-[#c1d5cb] hover:bg-white/10">{item}</a>)}<a href="#signup" className="rounded-xl bg-[#46dc87] py-3 font-semibold text-[#05261d]">Login / Register</a></div>}
       </header>
 
-      <section id="home" className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1240px] flex-col px-8 pb-8 pt-12 lg:px-16 lg:pt-14">
-        <h1 className="pointer-events-none absolute left-1/2 top-[10%] z-0 -translate-x-1/2 whitespace-nowrap text-[clamp(5rem,14vw,12rem)] font-light leading-none tracking-[-.1em] text-[#c9eee2]/[.27]">Legacy Bank</h1>
-        <div className="relative z-10 mt-[42vh] max-w-[280px] lg:mt-[35vh]">
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-[31px] font-medium uppercase leading-[1.05] tracking-[-.06em] text-white">Fuel for<br />startups</motion.p>
+      <section id="home" className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1400px] flex-col px-6 pb-8 pt-8 sm:px-8 lg:px-12 lg:pt-10">
+        <h1 className="pointer-events-none absolute left-1/2 top-[10%] z-0 -translate-x-1/2 whitespace-nowrap text-[clamp(4.5rem,15.8vw,14.5rem)] font-light leading-none tracking-[-.11em] text-[#c9eee2]/[.27]">Legacy Bank</h1>
+        <div className="relative z-10 mt-[54vh] max-w-[300px] sm:mt-[40vh] lg:mt-[31vh]">
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-[clamp(2rem,7vw,2.5rem)] font-medium uppercase leading-[1.02] tracking-[-.06em] text-white">Fuel for<br />startups</motion.p>
           <p className="mt-3 max-w-[220px] text-[10px] leading-[1.45] text-[#a8c8bb]">Strategic guidance, funding support, and growth acceleration for early-stage ventures.</p>
           <div className="mt-5 flex gap-3"><a href="#signup" className="rounded-full bg-[#46dc87] px-5 py-3 text-[10px] font-semibold text-[#04281e] transition hover:bg-[#78f4aa]">Get Started</a><a href="#about" className="rounded-full border border-white/10 bg-white/10 px-5 py-3 text-[10px] text-white transition hover:bg-white/20">Contact Us</a></div>
         </div>
 
-        <div className="pointer-events-auto absolute left-1/2 top-[18%] z-10 h-[390px] w-[330px] -translate-x-1/2 sm:h-[470px] sm:w-[395px]">
+        <div className="pointer-events-auto absolute left-1/2 top-[10%] z-10 h-[390px] w-[340px] -translate-x-1/2 sm:top-[5%] sm:h-[540px] sm:w-[450px] lg:h-[575px] lg:w-[480px]">
           <motion.div className="relative h-full w-full" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: "easeOut" }}>
-<motion.div whileHover={{ scale: 1.045 }} transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.7 }} className="group absolute inset-[-9%] flex items-center justify-center">
+<motion.div whileHover={{ scale: 1.045 }} transition={{ type: "spring", stiffness: 180, damping: 22, mass: 0.7 }} className="group absolute inset-[-4%] flex items-center justify-center">
   <div className="absolute inset-[18%] rounded-full bg-[#39e6a0]/25 blur-[70px]" aria-hidden="true" />
-  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain opacity-[.98] transition-none" />
+  <img src="/images/upfound-crystal-card.png" alt="Emerald crystal card sculpture floating above a glowing pedestal" className="relative h-full w-full object-contain opacity-[.98] brightness-[1.12] saturate-[1.08] transition-none" />
 </motion.div>
           </motion.div>
         </div>
 
-        <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .6 }} className="absolute bottom-[14%] right-8 z-20 w-[205px] rounded-2xl border border-white/10 bg-[#28594e]/70 p-4 shadow-2xl backdrop-blur-xl lg:right-16" aria-label="Launching startups metrics"><div className="flex items-center justify-between text-[10px] text-white"><span>Launching Startups</span><ArrowUpRight size={14} /></div><div className="mt-5 flex items-end justify-between"><div className="space-y-3 text-[9px] text-[#b5d0c3]"><p><strong className="text-white">83%</strong> Success Rate</p><p><strong className="text-white">17%</strong> Failure Rate</p></div><div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#8cf06c] border-l-transparent text-lg font-medium shadow-[0_0_18px_rgba(140,240,108,.3)]">86<span className="text-[9px]">%</span></div></div><p className="mt-3 text-right text-[9px] text-[#69ef91]">↑ 4.52%</p></motion.aside>
+        <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .6 }} className="absolute bottom-[1%] right-6 z-20 w-[215px] rounded-2xl border border-white/10 bg-[#28594e]/70 p-4 shadow-2xl backdrop-blur-xl sm:bottom-[13%] lg:right-16" aria-label="Launching startups metrics"><div className="flex items-center justify-between text-[10px] text-white"><span>Launching Startups</span><ArrowUpRight size={14} /></div><div className="mt-5 flex items-end justify-between"><div className="space-y-3 text-[9px] text-[#b5d0c3]"><p><strong className="text-white">83%</strong> Success Rate</p><p><strong className="text-white">17%</strong> Failure Rate</p></div><div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#8cf06c] border-l-transparent text-lg font-medium shadow-[0_0_18px_rgba(140,240,108,.3)]">86<span className="text-[9px]">%</span></div></div><p className="mt-3 text-right text-[9px] text-[#69ef91]">↑ 4.52%</p></motion.aside>
 
         <div className="relative z-20 mt-auto flex items-center justify-center text-[9px] uppercase tracking-[.18em] text-[#779b8d]"><span className="mr-2">◦</span>Scroll to<br />explore more</div>
       </section>
