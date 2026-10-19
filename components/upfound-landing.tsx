@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { ArrowUpRight, ChevronDown, Globe2, Menu, Sparkles } from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Globe2, Menu, Mouse, Sparkles } from 'lucide-react'
 import { useState } from 'react'
 
 const navItems = ['Home', 'About', 'Services', 'Pricing', 'Solution']
@@ -12,6 +12,7 @@ export function UpFoundLanding() {
     <main className="relative min-h-screen overflow-hidden bg-[#031e1a] text-[#eaf5ec] selection:bg-[#5ef39a] selection:text-[#03231c]">
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_44%,rgba(39,155,125,.34),transparent_30%),radial-gradient(circle_at_50%_95%,rgba(37,212,139,.18),transparent_28%),linear-gradient(135deg,#062821_0%,#073c35_48%,#021b1a_100%)]" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_18%,rgba(1,17,16,.42)_78%)]" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-3 z-[2] rounded-[28px] border border-white/[.07]" aria-hidden="true" />
       <div className="upfound-grid pointer-events-none absolute inset-0 opacity-20" aria-hidden="true" />
       <header className="pointer-events-auto relative z-30 px-8 pt-7 lg:px-16">
         <nav className="mx-auto flex max-w-[1240px] items-center justify-between" aria-label="Main navigation">
@@ -26,9 +27,9 @@ export function UpFoundLanding() {
         {menuOpen && <div className="mx-auto mt-3 grid max-w-sm gap-1 rounded-2xl border border-white/10 bg-[#092d27]/95 p-3 text-center text-sm backdrop-blur-xl md:hidden">{navItems.map(item => <a key={item} href={item === 'Home' ? '#home' : `#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="rounded-xl py-3 text-[#c1d5cb] hover:bg-white/10">{item}</a>)}<a href="#signup" className="rounded-xl bg-[#46dc87] py-3 font-semibold text-[#05261d]">Login / Register</a></div>}
       </header>
 
-      <section id="home" className="pointer-events-none relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1400px] flex-col px-6 pb-8 pt-8 sm:px-8 lg:px-12 lg:pt-10">
+      <section id="home" className="pointer-events-none relative z-10 mx-auto flex min-h-[980px] max-w-[1400px] sm:min-h-[calc(100vh-5rem)] flex-col px-6 pb-8 pt-8 sm:px-8 lg:px-12 lg:pt-10">
         <h1 className="pointer-events-none absolute left-1/2 top-[8%] z-0 -translate-x-1/2 sm:top-[4%] lg:top-[3%] whitespace-nowrap text-[clamp(4.5rem,15.8vw,14.5rem)] font-light leading-none tracking-[-.11em] text-[#c9eee2]/[.27]">Legacy Bank</h1>
-        <div className="relative z-10 mt-[66vh] max-w-[300px] sm:mt-[40vh] lg:mt-[31vh]">
+        <div className="relative z-10 mt-[66vh] max-w-[300px] sm:mt-[40vh] lg:mt-[35vh]">
           <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-[clamp(2rem,7vw,2.5rem)] font-medium uppercase leading-[1.02] tracking-[-.06em] text-white">Fuel for<br />startups</motion.p>
           <p className="mt-3 max-w-[220px] text-[10px] leading-[1.45] text-[#a8c8bb]">Strategic guidance, funding support, and growth acceleration for early-stage ventures.</p>
           <div className="mt-5 flex gap-3"><a href="#signup" className="rounded-full bg-[#46dc87] px-5 py-3 text-[10px] font-semibold text-[#04281e] transition hover:bg-[#78f4aa]">Get Started</a><a href="#about" className="rounded-full border border-white/10 bg-white/10 px-5 py-3 text-[10px] text-white transition hover:bg-white/20">Contact Us</a></div>
@@ -43,9 +44,16 @@ export function UpFoundLanding() {
           </motion.div>
         </div>
 
-        <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .6 }} className="absolute bottom-[12%] right-6 z-20 w-[215px] rounded-2xl border border-white/10 bg-[#28594e]/70 p-4 shadow-2xl backdrop-blur-xl sm:bottom-[13%] lg:right-16" aria-label="Launching startups metrics"><div className="flex items-center justify-between text-[10px] text-white"><span>Launching Startups</span><ArrowUpRight size={14} /></div><div className="mt-5 flex items-end justify-between"><div className="space-y-3 text-[9px] text-[#b5d0c3]"><p><strong className="text-white">83%</strong> Success Rate</p><p><strong className="text-white">17%</strong> Failure Rate</p></div><div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#8cf06c] border-l-transparent text-lg font-medium shadow-[0_0_18px_rgba(140,240,108,.3)]">86<span className="text-[9px]">%</span></div></div><p className="mt-3 text-right text-[9px] text-[#69ef91]">↑ 4.52%</p></motion.aside>
+        <nav className="pointer-events-auto absolute right-4 top-[36%] z-30 sm:top-[39%] flex flex-col items-center gap-1 rounded-full border border-white/10 bg-white/[.08] p-2 text-[#d7eee4] shadow-xl backdrop-blur-xl sm:right-6 lg:right-10" aria-label="Social media">
+          <a href="#instagram" aria-label="Instagram" className="rounded-full p-2 transition hover:bg-white/15 hover:text-[#63ef9b]"><span className="text-[14px] leading-none">◎</span></a>
+          <a href="#facebook" aria-label="Facebook" className="rounded-full p-2 transition hover:bg-white/15 hover:text-[#63ef9b]"><span className="text-[15px] font-semibold leading-none">f</span></a>
+          <a href="#x" aria-label="X" className="rounded-full p-2 text-[15px] font-medium transition hover:bg-white/15 hover:text-[#63ef9b]">𝕏</a>
+        </nav>
 
-        <div className="relative z-20 mt-auto flex items-center justify-center text-center text-[9px] uppercase leading-[1.35] tracking-[.18em] text-[#779b8d]"><span className="mr-2 text-[#a8c8bb]">◦</span><span>Scroll to<br />explore more</span></div>
+        <motion.aside initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: .6 }} className="absolute bottom-[3%] right-6 z-20 w-[220px] rounded-2xl sm:bottom-[12%] border border-white/10 bg-[#28594e]/70 p-4 shadow-2xl backdrop-blur-xl sm:bottom-[13%] lg:right-16" aria-label="Launching startups metrics"><div className="flex items-center justify-between text-[10px] text-white"><span>Launching Startups</span><ArrowUpRight size={14} /></div><div className="mt-5 flex items-end justify-between"><div className="space-y-3 text-[9px] text-[#b5d0c3]"><p><strong className="text-white">83%</strong> Success Rate</p><p><strong className="text-white">17%</strong> Failure Rate</p></div><div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#8cf06c] border-l-transparent text-lg font-medium shadow-[0_0_18px_rgba(140,240,108,.3)]">86<span className="text-[9px]">%</span></div></div><p className="mt-3 text-right text-[9px] text-[#69ef91]">↑ 4.52%</p></motion.aside>
+
+        <div className="pointer-events-none absolute bottom-[-1px] left-1/2 z-20 h-28 w-[112%] -translate-x-1/2 overflow-hidden" aria-hidden="true"><svg viewBox="0 0 1200 180" preserveAspectRatio="none" className="h-full w-full"><path d="M0 92C180 148 340 165 600 164s420-16 600-72v88H0Z" fill="#021815" /></svg></div>
+        <div className="relative z-30 mt-auto flex items-center justify-center gap-2 pb-2 text-center text-[9px] uppercase leading-[1.35] tracking-[.18em] text-[#779b8d]"><Mouse size={14} strokeWidth={1.5} className="text-[#a8c8bb]" /><span>Scroll to<br />explore more</span></div>
       </section>
       <section id="about" className="sr-only" aria-label="About"><h2>About UpFound</h2></section><section id="services" className="sr-only" aria-label="Services"><h2>Services</h2></section><section id="pricing" className="sr-only" aria-label="Pricing"><h2>Pricing</h2></section><section id="solution" className="sr-only" aria-label="Solution"><h2>Solution</h2></section><section id="signup" className="sr-only" aria-label="Login and registration"><h2>Login / Register</h2></section>
     </main>
