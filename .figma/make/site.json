@@ -1,0 +1,10 @@
+{
+  "description": "Creates a visually appealing website replicating a reference design, delivering a seamless user experience with customized images for brand consistency.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
